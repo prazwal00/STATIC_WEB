@@ -272,11 +272,14 @@
     </div>
 
     <footer>
-      <p>© 2025 Prazwal Baral. All rights reserved.</p>
+      <p>© <span id="year"></span> Prazwal Baral. All rights reserved.</p>
     </footer>
   </div>
 
   <script>
+    // Auto update copyright year
+    document.getElementById("year").textContent = new Date().getFullYear();
+    
     function toggleTheme() {
       const body = document.body;
       const icon = document.getElementById("theme-icon");
