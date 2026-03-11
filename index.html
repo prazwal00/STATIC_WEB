@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prazwal Baral | Troubleshooter</title>
-   <!-- 🔍 SEO META TAGS -->
+  <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=PB&background=0077ff&color=fff&size=64&bold=true&rounded=true">
   <meta name="description" content="Official website of Prajwal Baral — Tech Enthusiast specialized in Computer Networking, IT Security, and Automation.">
   <meta name="keywords" content="Prajwal Baral, Prajwal Baral Nepal, Prajwal Baral tech, networking expert, IT security, ESXi automation, data center, Ansible, virtualization, tech portfolio, cloud computing">
   <meta name="author" content="Prajwal Baral">
-  <meta name="description" content="Simplifying complex technical challenges through systematic troubleshooting and efficient solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1a1a1a;
@@ -21,14 +22,10 @@
       --instagram: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       background: var(--bg);
       color: var(--text);
@@ -37,38 +34,44 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    .background {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: var(--bg);
-      z-index: -2;
-    }
-
+    /* ── Grid background ── */
     .grid-lines {
       position: fixed;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      width: 200%; height: 200%;
+      top: -50%; left: -50%;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: 50px 50px;
-      animation: gridMove 40s linear infinite;
+      animation: gridMove 12s linear infinite; /* was 40s */
       z-index: -1;
       pointer-events: none;
     }
 
+    /* ── Fast dynamic lines ── */
     .dynamic-line {
       position: fixed;
       height: 1px;
       background: var(--accent);
       transform-origin: left center;
-      animation: lineFlow 20s linear infinite;
+      animation: lineFlow 4s linear infinite; /* was 20s */
       pointer-events: none;
-      opacity: 0.2;
+      opacity: 0.18;
     }
 
+    @keyframes gridMove {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    @keyframes lineFlow {
+      0%   { transform: scaleX(0) translateX(-100vw); opacity: 0; }
+      10%  { opacity: 0.18; }
+      90%  { opacity: 0.18; }
+      100% { transform: scaleX(1) translateX(100vw); opacity: 0; }
+    }
+
+    /* ── Layout ── */
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -78,26 +81,64 @@
 
     header {
       text-align: center;
-      margin: 6rem 0 4rem;
+      margin: 5rem 0 3rem;
+    }
+
+    /* ── PB Avatar ── */
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #0044cc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.8rem;
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent);
+      animation: avatarPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), transparent 60%);
+    }
+
+    .avatar span {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes avatarPop {
+      0%   { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1);   opacity: 1; }
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 700;
       letter-spacing: -0.05em;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       background: linear-gradient(45deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      animation: fadeUp 0.5s 0.2s ease both;
     }
 
     .tagline {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--secondary);
       max-width: 500px;
       margin: 0 auto;
-      position: relative;
+      animation: fadeUp 0.5s 0.35s ease both;
     }
 
     .tagline::after {
@@ -106,14 +147,21 @@
       width: 40px;
       height: 2px;
       background: var(--accent);
-      margin: 1.5rem auto;
+      margin: 1.25rem auto;
     }
 
+    @keyframes fadeUp {
+      0%   { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Social links ── */
     .links {
       display: flex;
       gap: 1.5rem;
       justify-content: center;
-      margin: 3rem 0;
+      margin: 2.5rem 0;
+      animation: fadeUp 0.5s 0.5s ease both;
     }
 
     .link-item {
@@ -123,84 +171,51 @@
       border-radius: 50px;
       text-decoration: none;
       color: var(--primary);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      transition: all 0.25s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .link-item svg {
-      width: 24px;
-      height: 24px;
+      width: 24px; height: 24px;
       fill: var(--primary);
-      transition: fill 0.3s ease;
+      transition: fill 0.25s ease;
     }
 
-    /* Brand hover colors */
-    .link-item.linkedin:hover {
-      border-color: var(--linkedin);
-      background: var(--linkedin);
-      color: #fff;
-    }
-    .link-item.linkedin:hover svg {
-      fill: #fff;
-    }
+    .link-item.linkedin:hover  { border-color: var(--linkedin); background: var(--linkedin); }
+    .link-item.linkedin:hover svg { fill: #fff; }
 
-    .link-item.instagram:hover {
-      border-color: #dd2a7b;
-      background: var(--instagram);
-      color: #fff;
-    }
-    .link-item.instagram:hover svg {
-      fill: #fff;
-    }
+    .link-item.instagram:hover { border-color: #dd2a7b; background: var(--instagram); }
+    .link-item.instagram:hover svg { fill: #fff; }
 
+    /* ── Footer ── */
     footer {
       text-align: center;
       margin: 4rem 0;
       color: var(--secondary);
+      animation: fadeUp 0.5s 0.65s ease both;
     }
 
-    @keyframes gridMove {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-
-    @keyframes lineFlow {
-      0% { transform: scaleX(0) translateX(-50vw); }
-      100% { transform: scaleX(1) translateX(100vw); }
-    }
-
-    .click-effect {
-      position: absolute;
-      background: rgba(0, 119, 255, 0.1);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: clickRipple 0.6s ease-out;
-      pointer-events: none;
-    }
-
-    @keyframes clickRipple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
+    /* ── Dark mode ── */
     .dark-mode {
       --bg: #0a0a0a;
       --text: #ffffff;
       --primary: #f0f0f0;
-      --secondary: #cccccc;
-      --grid-line: rgba(255, 255, 255, 0.05);
+      --secondary: #aaaaaa;
+      --grid-line: rgba(255, 255, 255, 0.04);
     }
 
+    .dark-mode .avatar {
+      box-shadow: 0 0 0 4px #0a0a0a, 0 0 0 6px var(--accent);
+    }
+
+    /* ── Theme toggle ── */
     .theme-toggle {
       position: fixed;
-      top: 1rem;
-      right: 1rem;
+      top: 1rem; right: 1rem;
       background: none;
       border: 2px solid var(--primary);
       padding: 0.5rem;
@@ -209,48 +224,42 @@
       transition: 0.3s ease;
       z-index: 1000;
     }
+    .theme-toggle:hover { transform: rotate(180deg); border-color: var(--accent); }
+    .theme-toggle svg   { width: 24px; height: 24px; fill: var(--primary); transition: 0.3s; }
 
-    .theme-toggle:hover {
-      transform: rotate(180deg);
-      border-color: var(--accent);
+    /* ── Click ripple ── */
+    .click-effect {
+      position: fixed;
+      width: 20px; height: 20px;
+      margin-left: -10px; margin-top: -10px;
+      background: rgba(0, 119, 255, 0.12);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: clickRipple 0.5s ease-out forwards;
+      pointer-events: none;
     }
-
-    .theme-toggle svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--primary);
-      transition: 0.3s ease;
+    @keyframes clickRipple {
+      to { transform: scale(6); opacity: 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .grid-lines, .dynamic-line {
-        animation: none;
-      }
+      .grid-lines, .dynamic-line { animation: none; }
     }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      .container {
-        padding: 1.5rem;
-      }
-      
-      .links {
-        flex-direction: column;
-        align-items: center;
-      }
+      h1 { font-size: 2.4rem; }
+      .container { padding: 1.5rem; }
+      .links { flex-direction: column; align-items: center; }
+      .avatar { width: 84px; height: 84px; }
+      .avatar span { font-size: 1.9rem; }
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
   <div class="grid-lines"></div>
-  
+
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
     <svg id="theme-icon" viewBox="0 0 24 24">
-      <!-- Default moon icon for light mode -->
       <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
     </svg>
   </button>
@@ -281,52 +290,46 @@
   </div>
 
   <script>
-    // Auto update copyright year
     document.getElementById("year").textContent = new Date().getFullYear();
-    
-    function toggleTheme() {
-      const body = document.body;
-      const icon = document.getElementById("theme-icon");
-      const isDark = body.classList.toggle("dark-mode");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
 
-      // If dark → show sun (light switch)
-      // If light → show moon (dark switch)
-      icon.innerHTML = isDark
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateIcon(isDark);
+    }
+
+    function updateIcon(isDark) {
+      document.getElementById("theme-icon").innerHTML = isDark
         ? '<path d="M12 4.5a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM12 2v2m0 16v2m10-10h-2M4 12H2m16.95 7.05l-1.41-1.41M6.46 6.46L5.05 5.05m0 13.9l1.41-1.41M17.54 6.46l1.41-1.41"/>'
         : '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
     }
 
-    // Set initial theme on load
-    const savedTheme = localStorage.getItem("theme");
-    const icon = document.getElementById("theme-icon");
-    if (savedTheme === "dark") {
+    // Apply saved theme
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
       document.body.classList.add("dark-mode");
-      icon.innerHTML =
-        '<path d="M12 4.5a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM12 2v2m0 16v2m10-10h-2M4 12H2m16.95 7.05l-1.41-1.41M6.46 6.46L5.05 5.05m0 13.9l1.41-1.41M17.54 6.46l1.41-1.41"/>';
-    } else {
-      icon.innerHTML =
-        '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
+      updateIcon(true);
     }
 
-    // Dynamic lines
+    // Faster dynamic lines (5 lines, 4s duration each, staggered)
     for (let i = 0; i < 5; i++) {
       const line = document.createElement("div");
       line.className = "dynamic-line";
-      line.style.top = `${Math.random() * 100}vh`;
-      line.style.width = `${30 + Math.random() * 70}%`;
-      line.style.animationDelay = `${Math.random() * 20}s`;
+      line.style.top = `${10 + i * 18}vh`;
+      line.style.width = `${40 + Math.random() * 50}%`;
+      line.style.animationDelay = `${i * 0.8}s`;
+      line.style.animationDuration = `${3 + Math.random() * 2}s`;
       document.body.appendChild(line);
     }
 
-    // Click ripple effect
+    // Click ripple
     document.addEventListener("click", (e) => {
-      const effect = document.createElement("div");
-      effect.className = "click-effect";
-      effect.style.left = `${e.clientX}px`;
-      effect.style.top = `${e.clientY}px`;
-      document.body.appendChild(effect);
-      setTimeout(() => effect.remove(), 600);
+      const el = document.createElement("div");
+      el.className = "click-effect";
+      el.style.left = `${e.clientX}px`;
+      el.style.top  = `${e.clientY}px`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 500);
     });
   </script>
 </body>
