@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prazwal Baral | Troubleshooter</title>
-  <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=PB&background=0077ff&color=fff&size=64&bold=true&rounded=true">
+  <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=PB&background=000000&color=fff&size=64&bold=true&rounded=true">
   <meta name="description" content="Prazwal Baral (also known as Prajwal Baral) — Tech Enthusiast from Nepal specialized in Computer Networking, IT Security, and Automation.">
   <script type="application/ld+json">
   {
@@ -15,7 +15,7 @@
     "url": "https://prazwalbaral.com.np",
     "sameAs": [
       "https://www.linkedin.com/in/prazwal00",
-      "https://www.instagram.com/prazwal00"
+      "https://x.com/prazwal00"
     ],
     "jobTitle": "Troubleshooter",
     "nationality": "Nepali"
@@ -24,328 +24,298 @@
   <meta name="keywords" content="Prajwal Baral, Prajwal Baral Nepal, Prajwal Baral tech, networking expert, IT security, ESXi automation, data center, Ansible, virtualization, tech portfolio, cloud computing">
   <meta name="author" content="Prajwal Baral">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1a1a1a;
-      --secondary: #4a4a4a;
-      --accent: #0077ff;
-      --bg: #fafafa;
-      --text: #333333;
-      --grid-line: rgba(0, 119, 255, 0.05);
-      --linkedin: #0077b5;
-      --instagram: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      --bg: #FAFAFA;
+      --text: #1A1A1A;
+      --accent: #E63946;
+      --secondary: #6B6B6B;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    [data-theme="dark"] {
+      --bg: #0A0A0A;
+      --text: #FAFAFA;
+      --secondary: #A0A0A0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-      background: var(--bg);
-      color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    /* ── Grid background ── */
-    .grid-lines {
-      position: fixed;
-      width: 200%; height: 200%;
-      top: -50%; left: -50%;
-      background-image:
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: gridMove 12s linear infinite; /* was 40s */
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* ── Fast dynamic lines ── */
-    .dynamic-line {
-      position: fixed;
-      height: 1px;
-      background: var(--accent);
-      transform-origin: left center;
-      animation: lineFlow 4s linear infinite; /* was 20s */
-      pointer-events: none;
-      opacity: 0.18;
-    }
-
-    @keyframes gridMove {
-      0%   { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-
-    @keyframes lineFlow {
-      0%   { transform: scaleX(0) translateX(-100vw); opacity: 0; }
-      10%  { opacity: 0.18; }
-      90%  { opacity: 0.18; }
-      100% { transform: scaleX(1) translateX(100vw); opacity: 0; }
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      position: relative;
-    }
-
-    header {
-      text-align: center;
-      margin: 5rem 0 3rem;
-    }
-
-    /* ── PB Avatar ── */
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, #0044cc 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.8rem;
-      box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent);
-      animation: avatarPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-      position: relative;
+      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
       overflow: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .avatar::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.25), transparent 60%);
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: transparent;
+      border: 1px solid var(--text);
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
     }
 
-    .avatar span {
-      font-size: 2.2rem;
+    .theme-toggle:hover {
+      background-color: var(--text);
+      color: var(--bg);
+    }
+
+    .curiosity-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: transparent;
+      border: 1px solid var(--secondary);
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--secondary);
+      max-width: 180px;
+      transition: all 0.3s ease;
+    }
+
+    .curiosity-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    [data-theme="dark"] .curiosity-btn {
+      border-color: #555;
+      color: #888;
+    }
+
+    [data-theme="dark"] .curiosity-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .name {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem;
       font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.03em;
-      position: relative;
-      z-index: 1;
+      color: var(--text);
+      text-shadow: 0 2px 20px rgba(26, 26, 26, 0.08);
+      animation: float 4s ease-in-out infinite;
+      cursor: default;
+      transition: text-shadow 0.3s ease, color 0.3s ease;
     }
 
-    @keyframes avatarPop {
-      0%   { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1);   opacity: 1; }
+    .name:hover {
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
     }
 
-    h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: fadeUp 0.5s 0.2s ease both;
+    [data-theme="dark"] .name:hover {
+      text-shadow: 0 2px 30px rgba(255, 255, 255, 0.2);
     }
 
     .tagline {
-      font-size: 1.15rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 400;
       color: var(--secondary);
-      max-width: 500px;
-      margin: 0 auto;
-      animation: fadeUp 0.5s 0.35s ease both;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      position: relative;
+      display: inline-block;
     }
 
     .tagline::after {
       content: '';
-      display: block;
-      width: 40px;
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
       height: 2px;
-      background: var(--accent);
-      margin: 1.25rem auto;
+      background: var(--text);
+      transition: width 0.3s ease;
     }
 
-    @keyframes fadeUp {
-      0%   { opacity: 0; transform: translateY(16px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .tagline:hover::after {
+      width: 100%;
     }
 
-    /* ── Social links ── */
-    .links {
+    .social-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       justify-content: center;
-      margin: 2.5rem 0;
-      animation: fadeUp 0.5s 0.5s ease both;
+      margin-top: 3rem;
     }
 
-    .link-item {
-      font-size: 1.5rem;
-      padding: 0.75rem 1.2rem;
-      border: 2px solid var(--primary);
-      border-radius: 50px;
-      text-decoration: none;
-      color: var(--primary);
-      transition: all 0.25s ease;
+    .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .link-item svg {
-      width: 24px; height: 24px;
-      fill: var(--primary);
-      transition: fill 0.25s ease;
-    }
-
-    .link-item.linkedin:hover  { border-color: var(--linkedin); background: var(--linkedin); }
-    .link-item.linkedin:hover svg { fill: #fff; }
-
-    .link-item.instagram:hover { border-color: #dd2a7b; background: var(--instagram); }
-    .link-item.instagram:hover svg { fill: #fff; }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      margin: 4rem 0;
-      color: var(--secondary);
-      animation: fadeUp 0.5s 0.65s ease both;
-    }
-
-    /* ── Dark mode ── */
-    .dark-mode {
-      --bg: #0a0a0a;
-      --text: #ffffff;
-      --primary: #f0f0f0;
-      --secondary: #aaaaaa;
-      --grid-line: rgba(255, 255, 255, 0.04);
-    }
-
-    .dark-mode .avatar {
-      box-shadow: 0 0 0 4px #0a0a0a, 0 0 0 6px var(--accent);
-    }
-
-    /* ── Theme toggle ── */
-    .theme-toggle {
-      position: fixed;
-      top: 1rem; right: 1rem;
-      background: none;
-      border: 2px solid var(--primary);
-      padding: 0.5rem;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      cursor: pointer;
-      transition: 0.3s ease;
-      z-index: 1000;
-    }
-    .theme-toggle:hover { transform: rotate(180deg); border-color: var(--accent); }
-    .theme-toggle svg   { width: 24px; height: 24px; fill: var(--primary); transition: 0.3s; }
-
-    /* ── Click ripple ── */
-    .click-effect {
-      position: fixed;
-      width: 20px; height: 20px;
-      margin-left: -10px; margin-top: -10px;
-      background: rgba(0, 119, 255, 0.12);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: clickRipple 0.5s ease-out forwards;
-      pointer-events: none;
-    }
-    @keyframes clickRipple {
-      to { transform: scale(6); opacity: 0; }
+      background-color: transparent;
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .grid-lines, .dynamic-line { animation: none; }
+    .social-link:hover {
+      transform: scale(1.15);
+      background-color: rgba(230, 57, 70, 0.1);
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2.4rem; }
-      .container { padding: 1.5rem; }
-      .links { flex-direction: column; align-items: center; }
-      .avatar { width: 84px; height: 84px; }
-      .avatar span { font-size: 1.9rem; }
+    .social-link svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--text);
+      transition: fill 0.3s ease;
+    }
+
+    .social-link.linkedin:hover {
+      background-color: rgba(0, 119, 181, 0.1);
+    }
+
+    .social-link.linkedin:hover svg {
+      fill: #0077B5;
+    }
+
+    .social-link.twitter:hover {
+      background-color: rgba(128, 128, 128, 0.2);
+    }
+
+    .social-link.twitter:hover svg {
+      fill: var(--text);
+    }
+
+    @media (min-width: 600px) {
+      .name {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.65rem;
+      }
+
+      .curiosity-btn {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 0.6rem;
+        padding: 0.4rem 0.6rem;
+        max-width: 140px;
+      }
+
+      .tagline {
+        letter-spacing: 0.15em;
+        font-size: 1rem;
+      }
+
+      .social-links {
+        gap: 1.5rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="grid-lines"></div>
-
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-    <svg id="theme-icon" viewBox="0 0 24 24">
-      <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
-    </svg>
+    <span class="mode-text">Dark</span>
   </button>
-
+  <button class="curiosity-btn" onclick="handleCuriosity()">Do not click this button</button>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateButtonText();
+    }
+    function updateButtonText() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelector('.mode-text').textContent = isDark ? 'Light' : 'Dark';
+    }
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+    updateButtonText();
+  </script>
+  <script>
+    function handleCuriosity() {
+      const btn = document.querySelector('.curiosity-btn');
+      btn.textContent = "That button explicitly said not to click. Interesting decision. Curiosity level: Acceptable.";
+      btn.style.borderColor = 'var(--accent)';
+      btn.style.color = 'var(--accent)';
+      btn.style.maxWidth = '300px';
+    }
+  </script>
   <div class="container">
-    <header>
-      <h1>Prazwal Baral</h1>
-      <p class="tagline">Troubleshooter</p>
-    </header>
-
-    <div class="links">
-      <a href="https://www.linkedin.com/in/prazwal00" class="link-item linkedin" target="_blank" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8.34 19.34H5.67v-9h2.67v9zm-1.34-10.3c-.85 0-1.54-.69-1.54-1.54s.69-1.54 1.54-1.54 1.54.69 1.54 1.54-.69 1.54-1.54 1.54zM19.34 19.34h-2.67v-4.67c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.75h-2.67v-9h2.56v1.23h.04c.36-.68 1.25-1.39 2.58-1.39 2.76 0 3.27 1.82 3.27 4.19v4.97z"/>
+    <h1 class="name">Prazwal Baral</h1>
+    <p class="tagline">Troubleshooter</p>
+    <div class="social-links">
+      <a href="https://x.com/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="Twitter">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
-
-      <a href="https://www.instagram.com/prazwal00" class="link-item instagram" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm0 9a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm4.75-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"/>
+      <a href="https://www.linkedin.com/in/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
       </a>
     </div>
-
-    <footer>
-      <p>© <span id="year"></span> Prazwal Baral. All rights reserved.</p>
-    </footer>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function toggleTheme() {
-      const isDark = document.body.classList.toggle("dark-mode");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateIcon(isDark);
-    }
-
-    function updateIcon(isDark) {
-      document.getElementById("theme-icon").innerHTML = isDark
-        ? '<path d="M12 4.5a7.5 7.5 0 100 15 7.5 7.5 0 000-15zM12 2v2m0 16v2m10-10h-2M4 12H2m16.95 7.05l-1.41-1.41M6.46 6.46L5.05 5.05m0 13.9l1.41-1.41M17.54 6.46l1.41-1.41"/>'
-        : '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>';
-    }
-
-    // Apply saved theme
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      document.body.classList.add("dark-mode");
-      updateIcon(true);
-    }
-
-    // Faster dynamic lines (5 lines, 4s duration each, staggered)
-    for (let i = 0; i < 5; i++) {
-      const line = document.createElement("div");
-      line.className = "dynamic-line";
-      line.style.top = `${10 + i * 18}vh`;
-      line.style.width = `${40 + Math.random() * 50}%`;
-      line.style.animationDelay = `${i * 0.8}s`;
-      line.style.animationDuration = `${3 + Math.random() * 2}s`;
-      document.body.appendChild(line);
-    }
-
-    // Click ripple
-    document.addEventListener("click", (e) => {
-      const el = document.createElement("div");
-      el.className = "click-effect";
-      el.style.left = `${e.clientX}px`;
-      el.style.top  = `${e.clientY}px`;
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 500);
-    });
-  </script>
 </body>
 </html>
