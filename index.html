@@ -96,6 +96,12 @@
       transition: all 0.3s ease;
     }
 
+    .curiosity-btn.clicked {
+      border-color: var(--accent);
+      color: var(--accent);
+      max-width: 300px;
+    }
+
     .curiosity-btn:hover {
       border-color: var(--accent);
       color: var(--accent);
@@ -166,6 +172,7 @@
       margin-top: 1.5rem;
       position: relative;
       display: inline-block;
+      transition: opacity 0.5s ease;
     }
 
     .tagline::after {
@@ -295,15 +302,39 @@
   <script>
     function handleCuriosity() {
       const btn = document.querySelector('.curiosity-btn');
-      btn.textContent = "That button explicitly said not to click. Interesting decision. Curiosity level: Acceptable.";
-      btn.style.borderColor = 'var(--accent)';
-      btn.style.color = 'var(--accent)';
-      btn.style.maxWidth = '300px';
+      const isClicked = btn.classList.toggle('clicked');
+      
+      if (isClicked) {
+        btn.textContent = "That button explicitly said not to click. Interesting decision. Curiosity level: Acceptable.";
+      } else {
+        btn.textContent = "Do not click this button";
+      }
     }
   </script>
   <div class="container">
     <h1 class="name">Prazwal Baral</h1>
     <p class="tagline">Troubleshooter</p>
+    <script>
+      const taglines = [
+        "Troubleshooter",
+        "Full Stack Vibe Coder",
+        "ICT Specialist",
+        "BSc(1st Hons) Networking and IT Security",
+        "MBA Graduate",
+        "WLV Exchange Fellowship 2024"
+      ];
+      const taglineEl = document.querySelector('.tagline');
+      let index = 0;
+
+      setInterval(() => {
+        taglineEl.style.opacity = 0;
+        setTimeout(() => {
+          index = (index + 1) % taglines.length;
+          taglineEl.textContent = taglines[index];
+          taglineEl.style.opacity = 1;
+        }, 500);
+      }, 3000);
+    </script>
     <div class="social-links">
       <a href="https://x.com/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="Twitter">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
