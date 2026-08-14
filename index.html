@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Prazwal Baral | Troubleshooter</title>
   <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=PB&background=000000&color=fff&size=64&bold=true&rounded=true">
   <meta name="description" content="Prazwal Baral (also known as Prajwal Baral) — Tech Enthusiast from Nepal specialized in Computer Networking, IT Security, and Automation.">
+  <meta name="keywords" content="Prajwal Baral, Prajwal Baral Nepal, Prajwal Baral tech, networking expert, IT security, ESXi automation, data center, Ansible, virtualization, tech portfolio, cloud computing">
+  <meta name="author" content="Prajwal Baral">
+  <meta name="theme-color" content="#FAFAFA">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prazwal Baral | Troubleshooter">
+  <meta property="og:description" content="ICT Ops & Infrastructure · Networking · IT Security · Automation — Nepal.">
+  <meta property="og:url" content="https://prazwalbaral.com.np">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -15,29 +24,41 @@
     "url": "https://prazwalbaral.com.np",
     "sameAs": [
       "https://www.linkedin.com/in/prazwal00",
+      "https://www.instagram.com/prazwal00",
       "https://x.com/prazwal00"
     ],
     "jobTitle": "Troubleshooter",
     "nationality": "Nepali"
   }
   </script>
-  <meta name="keywords" content="Prajwal Baral, Prajwal Baral Nepal, Prajwal Baral tech, networking expert, IT security, ESXi automation, data center, Ansible, virtualization, tech portfolio, cloud computing">
-  <meta name="author" content="Prajwal Baral">
+
+  <!-- Apply theme before first paint to avoid flash -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #FAFAFA;
       --text: #1A1A1A;
       --accent: #E63946;
       --secondary: #6B6B6B;
+      --glow: rgba(230, 57, 70, 0.07);
     }
 
     [data-theme="dark"] {
       --bg: #0A0A0A;
       --text: #FAFAFA;
       --secondary: #A0A0A0;
+      --glow: rgba(230, 57, 70, 0.09);
     }
 
     * {
@@ -46,156 +67,131 @@
       box-sizing: border-box;
     }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--bg);
-      font-family: 'Inter', sans-serif;
-      overflow: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
+    html, body {
+      height: 100%;
     }
+
+    body {
+      display: grid;
+      place-items: center;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      padding: clamp(1.5rem, 5vw, 3rem);
+      padding-top: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-top));
+      padding-bottom: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-bottom));
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* ---------- Theme toggle ---------- */
 
     .theme-toggle {
       position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: max(1.25rem, env(safe-area-inset-top));
+      right: max(1.25rem, env(safe-area-inset-right));
+      min-height: 44px;
       background: transparent;
-      border: 1px solid var(--text);
+      border: 1px solid var(--secondary);
       border-radius: 2rem;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.1rem;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
+      font-family: inherit;
+      font-size: 0.7rem;
       font-weight: 500;
       color: var(--text);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: all 0.3s ease;
+      letter-spacing: 0.12em;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
     .theme-toggle:hover {
       background-color: var(--text);
+      border-color: var(--text);
       color: var(--bg);
     }
 
-    .curiosity-btn {
-      position: fixed;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: transparent;
-      border: 1px solid var(--secondary);
-      border-radius: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      color: var(--secondary);
-      max-width: 180px;
-      transition: all 0.3s ease;
-    }
-
-    .curiosity-btn.clicked {
-      border-color: var(--accent);
-      color: var(--accent);
-      max-width: 300px;
-    }
-
-    .curiosity-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    [data-theme="dark"] .curiosity-btn {
-      border-color: #555;
-      color: #888;
-    }
-
-    [data-theme="dark"] .curiosity-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    /* ---------- Hero ---------- */
 
     .container {
       text-align: center;
-      animation: fadeIn 0.8s ease-out forwards;
-      opacity: 0;
+      position: relative;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Soft breathing accent glow behind the name */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(70vw, 480px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -55%);
+      background: radial-gradient(circle, var(--glow) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: -1;
+      animation: breathe 7s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -55%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%, -55%) scale(1.08); }
     }
 
     .name {
-      font-family: 'Inter', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--text);
-      text-shadow: 0 2px 20px rgba(26, 26, 26, 0.08);
-      animation: float 4s ease-in-out infinite;
-      cursor: default;
-      transition: text-shadow 0.3s ease, color 0.3s ease;
+      font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+      font-size: clamp(2.4rem, 8.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      animation: float 6s ease-in-out infinite;
     }
 
-    .name:hover {
-      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
     }
 
-    [data-theme="dark"] .name:hover {
-      text-shadow: 0 2px 30px rgba(255, 255, 255, 0.2);
+    /* ---------- Rotating tagline (single line, fits at every width) ---------- */
+
+    .tagline-slot {
+      display: grid;
+      place-items: center;
+      min-height: 1.8em;
+      margin-top: 1.25rem;
     }
 
     .tagline {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 400;
+      grid-area: 1 / 1;
+      font-size: clamp(0.65rem, 2.4vw, 1rem);
+      font-weight: 500;
       color: var(--secondary);
-      letter-spacing: 0.3em;
+      letter-spacing: clamp(0.08em, 0.6vw, 0.22em);
       text-transform: uppercase;
-      margin-top: 1.5rem;
-      position: relative;
-      display: inline-block;
-      transition: opacity 0.5s ease;
+      white-space: nowrap;
+      line-height: 1.5;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
-    .tagline::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: var(--text);
-      transition: width 0.3s ease;
+    .tagline.is-leaving {
+      opacity: 0;
+      transform: translateY(-6px);
     }
 
-    .tagline:hover::after {
-      width: 100%;
+    .tagline.is-entering {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: none;
     }
+
+    /* ---------- Social links ---------- */
 
     .social-links {
       display: flex;
-      gap: 2rem;
+      gap: clamp(1.25rem, 4vw, 2rem);
       justify-content: center;
-      margin-top: 3rem;
+      margin-top: clamp(2rem, 6vw, 3rem);
     }
 
     .social-link {
@@ -205,18 +201,16 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background-color: transparent;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
     .social-link:hover {
-      transform: scale(1.15);
-      background-color: rgba(230, 57, 70, 0.1);
+      transform: translateY(-3px);
     }
 
     .social-link svg {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       fill: var(--text);
       transition: fill 0.3s ease;
     }
@@ -230,110 +224,161 @@
     }
 
     .social-link.twitter:hover {
-      background-color: rgba(128, 128, 128, 0.2);
+      background-color: rgba(128, 128, 128, 0.15);
     }
 
-    .social-link.twitter:hover svg {
-      fill: var(--text);
+    .social-link.instagram:hover {
+      background-color: rgba(225, 48, 108, 0.1);
     }
 
-    @media (min-width: 600px) {
-      .name {
-        font-size: 3.5rem;
-      }
+    .social-link.instagram:hover svg {
+      fill: #E1306C;
     }
 
-    @media (max-width: 480px) {
-      .theme-toggle {
-        top: 1rem;
-        right: 1rem;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.65rem;
-      }
+    /* ---------- Entrance stagger ---------- */
 
-      .curiosity-btn {
-        bottom: 1rem;
-        left: 1rem;
-        font-size: 0.6rem;
-        padding: 0.4rem 0.6rem;
-        max-width: 140px;
-      }
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
 
+    .reveal:nth-child(1) { animation-delay: 0.05s; }
+    .reveal:nth-child(2) { animation-delay: 0.2s; }
+    .reveal:nth-child(3) { animation-delay: 0.35s; }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Name plays its entrance first, then hands off to the float */
+    .name.reveal {
+      animation:
+        rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards,
+        float 6s ease-in-out 0.9s infinite;
+    }
+
+    /* ---------- Accessibility ---------- */
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .social-link:focus-visible {
+      border-radius: 50%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Very small screens: tighten the tagline so the longest line still fits */
+    @media (max-width: 360px) {
       .tagline {
-        letter-spacing: 0.15em;
-        font-size: 1rem;
-      }
-
-      .social-links {
-        gap: 1.5rem;
-      }
-
-      .social-link {
-        width: 44px;
-        height: 44px;
+        font-size: 0.6rem;
+        letter-spacing: 0.05em;
       }
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color theme">
     <span class="mode-text">Dark</span>
   </button>
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateButtonText();
-    }
-    function updateButtonText() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.querySelector('.mode-text').textContent = isDark ? 'Light' : 'Dark';
-    }
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      document.documentElement.setAttribute('data-theme', saved);
-    }
-    updateButtonText();
-  </script>
-  <div class="container">
-    <h1 class="name">Prazwal Baral</h1>
-    <p class="tagline">Troubleshooter</p>
-    <script>
-      const taglines = [
-        "Troubleshooter",
-        "ICT Ops & Infrastructure Specialist",
-        "Automation Enthusiast",
-        "MBA Graduate",
-        "BSc(Hons) Networking and IT Security",
-        "WLV Exchange Fellow 2024"
-      ];
-      const taglineEl = document.querySelector('.tagline');
-      let index = 0;
 
-      setInterval(() => {
-        taglineEl.style.opacity = 0;
-        setTimeout(() => {
-          index = (index + 1) % taglines.length;
-          taglineEl.textContent = taglines[index];
-          taglineEl.style.opacity = 1;
-        }, 500);
-      }, 3000);
-    </script>
-    <div class="social-links">
-      <a href="https://x.com/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="Twitter">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <main class="container">
+    <h1 class="name reveal">Prazwal Baral</h1>
+
+    <div class="tagline-slot reveal">
+      <p class="tagline">Troubleshooter</p>
+    </div>
+
+    <nav class="social-links reveal" aria-label="Social links">
+      <a href="https://www.instagram.com/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="https://x.com/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
       <a href="https://www.linkedin.com/in/prazwal00" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
       </a>
-    </div>
-  </div>
+    </nav>
+  </main>
+
+  <script>
+    // ----- Theme toggle -----
+    var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    function syncThemeUI() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelector('.mode-text').textContent = isDark ? 'Light' : 'Dark';
+      themeColorMeta.setAttribute('content', isDark ? '#0A0A0A' : '#FAFAFA');
+    }
+
+    function toggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      syncThemeUI();
+    }
+
+    // Follow system preference live, unless the visitor has chosen manually
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        syncThemeUI();
+      }
+    });
+
+    syncThemeUI();
+
+    // ----- Rotating tagline (smooth crossfade, no layout shift) -----
+    var taglines = [
+      'Troubleshooter',
+      'ICT Ops & Infrastructure Specialist',
+      'Automation Enthusiast',
+      'MBA Graduate',
+      'BSc(Hons) Networking and IT Security',
+      'WLV Exchange Fellow 2024'
+    ];
+    var taglineEl = document.querySelector('.tagline');
+    var index = 0;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    setInterval(function () {
+      if (document.hidden) return;
+      index = (index + 1) % taglines.length;
+
+      if (reduceMotion) {
+        taglineEl.textContent = taglines[index];
+        return;
+      }
+
+      taglineEl.classList.add('is-leaving');
+      setTimeout(function () {
+        taglineEl.textContent = taglines[index];
+        taglineEl.classList.remove('is-leaving');
+        taglineEl.classList.add('is-entering');
+        // force reflow so the entering state applies before transitioning in
+        void taglineEl.offsetHeight;
+        taglineEl.classList.remove('is-entering');
+      }, 450);
+    }, 3400);
+  </script>
 </body>
 </html>
