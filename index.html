@@ -90,6 +90,7 @@
       top: max(1.25rem, env(safe-area-inset-top));
       right: max(1.25rem, env(safe-area-inset-right));
       min-height: 44px;
+      min-width: 4.6rem; /* fits both "Dark" and "Light" so the button never resizes */
       background: transparent;
       border: 1px solid var(--secondary);
       border-radius: 2rem;
@@ -101,13 +102,30 @@
       color: var(--text);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
     }
 
-    .theme-toggle:hover {
-      background-color: var(--text);
-      border-color: var(--text);
-      color: var(--bg);
+    /* Hover only where hover exists — prevents the style sticking after a tap on touch screens */
+    @media (hover: hover) {
+      .theme-toggle:hover {
+        background-color: var(--text);
+        border-color: var(--text);
+        color: var(--bg);
+      }
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.96);
+    }
+
+    @media (max-width: 480px) {
+      .theme-toggle {
+        top: max(1rem, env(safe-area-inset-top));
+        right: max(1rem, env(safe-area-inset-right));
+        min-width: 4.2rem;
+        padding: 0.45rem 0.9rem;
+        font-size: 0.62rem;
+      }
     }
 
     /* ---------- Hero ---------- */
